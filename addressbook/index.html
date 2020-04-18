@@ -1,0 +1,252 @@
+<html>
+  <head>
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+  />
+  </head>
+  <body onload="load_countries()">
+    <div class="grid grid-cols-2 gap-4">
+        <div class="block text-gray-700 font-bold xl:text-3xl xl:text-right">Address Book</div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <form class="w-full max-w-screen-lg">
+          <div class="xl:flex xl:items-center mb-6 m-1">
+            <div class="xl:w-1/5">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                for="inline-full-name"
+              >
+                Name
+              </label>
+            </div>
+            <div class="xl:w-4/5">
+              <input
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="inline-full-name"
+                type="text"
+                value=""
+                placeholder="Enter Full Name"
+                oninput="writeName()"
+              />
+            </div>
+          </div>
+          <!-- Element Start -->
+          <div class="xl:flex xl:items-center mb-6 m-1">
+            <div class="xl:w-1/5">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                for="inline-email"
+              >
+                Email
+              </label>
+            </div>
+            <div class="xl:w-4/5">
+              <input
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="inline-email"
+                type="email"
+                value=""
+                oninput="writeEmail()"
+              />
+            </div>
+          </div>
+          <!-- Element End -->
+          <!-- Element Start -->
+          <div class="xl:flex xl:items-center mb-6 m-1">
+            <div class="xl:w-1/5">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                for="inline-gender"
+              >
+                Gender
+              </label>
+            </div>
+            <div class="xl:w-4/5">
+              <input
+                id="female"
+                type="radio"
+                name="gender"
+                value="female"
+                checked
+              /><span class="text-gray-700 font-regular"> Female</span>
+              <input id="male" type="radio" name="gender" value="male" /><span
+                class="text-gray-700 font-regular"
+              >
+                Male</span
+              >
+            </div>
+          </div>
+          <!-- Element End -->
+          <!-- Element Start -->
+          <div class="xl:flex xl:items-center mb-6">
+            <div class="xl:w-1/5">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                for="inline-addres1"
+              >
+                Address Line 1
+              </label>
+            </div>
+            <div class="xl:w-4/5">
+              <input
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="inline-address1"
+                type="text"
+                value=""
+                oninput="writeAddress1()"
+              />
+            </div>
+          </div>
+          <!-- Element End -->
+          <!-- Element Start -->
+          <div class="xl:flex xl:items-center mb-6">
+            <div class="xl:w-1/5">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-2 md:mb-0 pr-4"
+                for="inline-address2"
+              >
+                Address Line 2
+              </label>
+            </div>
+            <div class="xl:w-4/5">
+              <input
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="inline-address2"
+                type="text"
+                value=""
+                oninput="writeAddress2()"
+              />
+            </div>
+          </div>
+          <!-- Element End -->
+          <!-- Element Start -->
+          <div class="xl:flex xl:items-center mb-6">
+            <div class="xl:w-1/5">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-2 md:mb-0 pr-4"
+                for="inline-country"
+              >
+                Country
+              </label>
+            </div>
+            <div class="xl:w-4/5">
+              <select
+                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="inline-country"
+                type="text"
+                value=""
+                onchange="load_states()"
+              >
+              </select>
+            </div>
+          </div>
+          <!-- Element End -->
+          <!-- Element Start -->
+
+          <div class="xl:flex xl:items-center mb-6">
+            <div class="xl:w-1/5">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-2 md:mb-0 pr-4"
+                for="inline-states"
+              >
+                State
+              </label>
+            </div>
+            <div class="xl:w-4/5">
+              <select
+                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="inline-states"
+                type="text"
+                value=""
+                onchange="load_cities()";
+              >
+              </select>
+            </div>
+          </div>
+
+          <!-- Element End -->
+          <!-- Element Start -->
+          <div class="xl:flex xl:items-center mb-6">
+            <div class="xl:w-1/5">
+              <label
+                class="block text-gray-500 font-bold md:text-right mb-2 md:mb-0 pr-4"
+                for="inline-city"
+              >
+                City
+              </label>
+            </div>
+            <div class="xl:w-4/5">
+              <select
+                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="inline-city"
+                type="text"
+                value=""
+                onchange="writeCity()"
+              >
+              </select>
+            </div>
+          </div>
+          <!-- Element End -->
+          <!-- Element Start -->
+          <div class="xl:flex xl:items-right mb-6">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="col-start-2 col-span-2 ...">
+                <label
+                  class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+                >
+                  <svg
+                    class="fill-current w-4 h-4 mr-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                  </svg>
+                  <span>Upload Picture</span>
+                  <input type="file" onchange="loadPicture(this)" class="hidden" id="inline-picture" accept="image/*">
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- Element End -->
+        </form>
+      </div>
+      <!-- second Column -->
+      <div>
+        <div class="max-w-sm rounded overflow-hidden shadow-lg">
+            <img id="display-picture" src=""/>
+          <!-- <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="transform scale-50"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M5 5a5 5 0 0 1 10 0v2A5 5 0 0 1 5 7V5zM0 16.68A19.9 19.9 0 0 1 10 14c3.64 0 7.06.97 10 2.68V20H0v-3.32z"
+            />
+          </svg> -->
+          <div class="px-6 py-4">
+            <div class="font-bold text-xl mb-2" id="display-name"></div>
+            <p class="text-gray-700 text-md text-light" id="display-email"></p>
+            <p class="text-gray-700 text-md text-light" id="display-address1"></p>
+            <p class="text-gray-700 text-md text-light" id="display-address2"></p>
+            <p class="text-gray-700 text-base">
+              <div>
+                  <span id="display-country"></span> - <span id="display-city"></span>
+              </div> 
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Second Column -->
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+        <div class="flex justify-end"><button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" id="btnSave" onclick="save(this)">Save</button></div>
+        <div></div>
+    </div>
+  </body>
+  <script src="//cdn.jsdelivr.net/npm/pouchdb@7.1.1/dist/pouchdb.min.js"></script>
+  <script src="index.js"></script>
+  </html>
